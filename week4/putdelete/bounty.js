@@ -8,15 +8,15 @@ const bountys = [
       name: "Noah Seibel",
       description: "Bounty Todo",
       imgUrl:
-        "http://images4.fanpop.com/image/photos/17500000/cool-background-random-17506456-1869-1168.jpg",
+        "https://raw.githubusercontent.com/BrenSeibel/fsw-125/master/week4/putdelete/noah.jpg",
       completed: false,
       _id: uuid.v4()
     },
     {
-      name: "Leia Organa",
-      description: "Second to do",
+      name: "Mr. Tree",
+      description: "Bounty Todo",
       imgUrl:
-        "http://3.bp.blogspot.com/-4qBPxRh9C0U/TtxJbdIPfWI/AAAAAAAAAqc/DZ-5uaRHSnw/s1600/rainbow-wallpaper-hd-3-765147.jpg",
+        "https://images.unsplash.com/photo-1503435980610-a51f3ddfee50?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
       completed: true,
       _id: uuid.v4()
     }
