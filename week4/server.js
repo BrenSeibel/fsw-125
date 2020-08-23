@@ -33,6 +33,30 @@ const todos = [
       res.send(todo);
   });
 
+  app.post("/todos", (req, res) => {
+      const newTodo = req.body;
+      newTodo._id = uuid.v4();
+      todos.push(newTodo);
+
+      res.send(`Posted: Your new todo has been added to the list of todos`);
+  });
+
+  app.put("/todos/:id", (req, res) => {
+    const id = req.params.id;
+    console.log(id);
+    const index = todos.findIndex(todo => todo._id === id);
+    const updatedtodo = Object.assign(todos[index], req.body);
+    res.send(updatedtodo);
+});
+
+  app.delete("/todos/:id", (req, res) => {
+    const id = req.params.id;
+    console.log(id);
+    const index = todos.findIndex(todo => todo._id === id);
+    // const updatedtodo = Object.assign(todos[index], req.body);
+    res.send(`Deleted entry`);
+    todos.splice(index, 1);
+});
 
 
 app.listen(3030, () => {console.log("runninginport3030")});
