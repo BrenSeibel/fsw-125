@@ -1,10 +1,30 @@
 const express = require("express")
 const app = express()
 
-app.use(Express.json)
+const uuid = require("uuid");
+app.use(express.json());
+
+const bountys = [
+    {
+      name: "Noah Seibel",
+      description: "Bounty Todo",
+      imgUrl:
+        "https://raw.githubusercontent.com/BrenSeibel/fsw-125/master/week4/putdelete/noah.jpg",
+      completed: false,
+      _id: uuid.v4()
+    },
+    {
+      name: "Mr. Tree",
+      description: "Bounty Todo",
+      imgUrl:
+        "https://images.unsplash.com/photo-1503435980610-a51f3ddfee50?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+      completed: true,
+      _id: uuid.v4()
+    }
+  ];
 
 app.get("/bountys", (req, res) => {
-    res.send({ bountys});
+    res.send(bountys);
 });
 
 app.get("/bountys/:id", (req, res) => {
