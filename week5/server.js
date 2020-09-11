@@ -6,10 +6,10 @@ app.use(express.json());
 
 const bountys = [
     {
-      name: "Noah Seibel",
+      name: "Bounty Hunter",
       description: "Bounty Todo",
       imgUrl:
-        "https://raw.githubusercontent.com/BrenSeibel/fsw-125/master/week4/putdelete/noah.jpg",
+        "https://www.pngfind.com/pngs/m/245-2459070_bounty-hunter-applejack-https-cartoon-hd-png-download.png",
       completed: false,
       _id: uuid.v4()
     },
