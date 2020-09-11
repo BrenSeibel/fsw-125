@@ -39,7 +39,7 @@ app.post("/bountys", (req, res) => {
     newbounty._id = uuid.v4();
     bountys.push(newbounty);
 
-    res.send(`Posted: Your new bounty has been added to the list of bountys`);
+    res.send(newbounty);
 });
 
 app.put("/bountys/:id", (req, res) => {

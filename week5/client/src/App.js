@@ -29,10 +29,12 @@ class App extends React.Component {
         name: this.state.name,
         description: this.state.description,
         imgUrl: this.state.imgUrl,
-        id: this.state.array.length,
+        // id: this.state.array.length,
     }
-        
-    this.setState({array:[...this.state.array, newObject]})
+       axios.post("/bountys", newObject) .then(res => {
+         this.setState({array:[...this.state.array, res.data]})
+       })
+    
 }
 
 edit = (event) => {
@@ -54,12 +56,18 @@ deleteb = (event) => {
 
         console.log(array)
 
-    const tweet = array.findIndex(tweet => tweet.id === event.target.id);
+    const tweet = array.findIndex(tweet => tweet.id === event.target.className);
     console.log(tweet)
     array.splice(tweet, 1);
-    
+
+    console.log(event.target.className)
+
     console.log(array)
-    this.setState({array: array})
+    axios.delete("/bountys/" + event.target.className) .then(res => {
+      this.setState({array: array})
+    })
+    for(var i = 0; i < document.getElementsByClassName(event.target.className).length; i++)
+    {document.getElementsByClassName(event.target.className)[i].remove()}
 }
 
 
@@ -99,8 +107,8 @@ deleteb = (event) => {
                 <p>{bounty.description}</p>
                 <img src = {bounty.imgUrl}/>
                 <div style={{display: "flex", flexDirection:"column", justifyContent:"space-evenly", maxWidth: "32.5%", height:"4vw"}}>
-                            <button id={bounty.id} onClick = {(e) => this.edit(e)}>Edit</button>
-                            <button id={bounty.id} onClick = {(e) => this.deleteb(e)}>Delete</button>
+                            <button className={bounty._id} onClick = {(e) => this.edit(e)}>Edit</button>
+                            <button className={bounty._id} onClick = {(e) => this.deleteb(e)}>Delete</button>
                           </div>
               </div>
             )
