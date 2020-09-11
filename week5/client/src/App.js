@@ -7,7 +7,7 @@ class App extends React.Component {
   constructor (){
     super()
     this.state = {
-        array : []
+        array : [], name:"", description:"", imgUrl:"",
     }
   } 
   
@@ -17,6 +17,13 @@ class App extends React.Component {
       this.setState({array: response.data})})
     .catch(error => console.log(error))  
   }
+
+  handleChange = (e) => {
+    const {name, value} = e.target
+    this.setState({[name]: value})
+    console.log(e.target)
+  }
+
   submit = () => {
     var newObject = {
         name: this.state.name,
@@ -55,11 +62,6 @@ deleteb = (event) => {
     this.setState({array: array})
 }
 
-handleChange = (e) => {
-    const {name, value} = e.target
-    this.setState({[name]: value})
-    console.log(e.target)
-  }
 
   render (){
     return (
